@@ -68,7 +68,7 @@ def PL(startlist=selected_df):
     # Résolution du problème
     prob.solve()
     
-    selected_coureurs_df = startlist[startlist['Rider'].isin([v.name.split("_")[1] for v in prob.variables() if v.varValue == 1])]
+    selected_coureurs_df = startlist[startlist['Rider'].isin([v.name for v in prob.variables() if v.varValue == 1])]
     result = []
     for pos in list(selected_coureurs_df.index):
         if pos < 20:
@@ -82,6 +82,6 @@ def PL(startlist=selected_df):
 df, total_price, total_points = PL()
 
 st.header("Your table of results")
-st.dataframe(selected_df, hide_index=True)
+st.dataframe(df, hide_index=True)
 st.text(f"total_price : {total_price}")
 st.text(f"total_points : {total_points}")
