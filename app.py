@@ -82,6 +82,6 @@ def PL(startlist=selected_df):
 df, total_price, total_points = PL()
 
 st.header("Your table of results")
-st.dataframe(df, hide_index=True)
+st.dataframe(selected_df, hide_index=True)
 st.text(f"total_price : {total_price}")
 st.text(f"total_points : {total_points}")
