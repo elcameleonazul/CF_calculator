@@ -13,7 +13,7 @@ def load_startlists(directory):
     return startlists
 
 # Charger les données
-startlist_dir = "./Race/"
+startlist_dir = "../Race/"
 startlists = load_startlists(startlist_dir)
 
 # Sélectionner une course
