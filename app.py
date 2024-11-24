@@ -67,6 +67,7 @@ def PL(startlist=selected_df):
     
     # Résolution du problème
     prob.solve()
+    list_selected=[v.name for v in prob.variables() if v.varValue == 1]
     list_selected=[nom.replace('Coureur_', '').replace('_', ' ') for nom in list_selected]
     selected_coureurs_df = startlist[startlist['Rider'].isin(list_selected)]
     result = []
