@@ -67,8 +67,8 @@ def PL(startlist=selected_df):
     
     # Résolution du problème
     prob.solve()
-    list_selected=[nom.replace('Coureur_', '').replace('_', ' ') for nom in list_selected]
-    selected_coureurs_df = startlist[startlist['Rider'].isin(list_selected)]
+    
+    selected_coureurs_df = startlist[startlist['Rider'].isin([v.name.split("_")[1] for v in prob.variables() if v.varValue == 1])]
     result = []
     for pos in list(selected_coureurs_df.index):
         if pos < 20:
